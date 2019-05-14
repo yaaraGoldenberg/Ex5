@@ -9,14 +9,20 @@ namespace itertools {
 
 	public:
 		powerset(T s) : start(s){}
+		iterator begin() {
+			return iterator(start.begin(), start.end());
+		}
+		iterator end() {
+			return iterator(start.end(), start.end());
+		}
 		
 		class iterator {
 		private:
-			typename T::iterator itr1;
-			typename T::iterator itr2;
+			typename T::iterator itr;
+			
 
 		public:
-			iterator(typename T::iterator itrA, typename T::iterator itrB) : itr1(itrA), itr2(itrB){}
+			iterator(typename T::iterator itrA) : itr(itrA){}
 
 			auto operator*() {
 				string s = "{}";
@@ -24,8 +30,7 @@ namespace itertools {
 			}
 
 			powerset::iterator& operator++() {
-				itr1++;
-				itr2++;
+				itr++;
 				return *this;
 			}
 			const iterator operator++(int) {
@@ -40,12 +45,7 @@ namespace itertools {
 				return true;
 			}
 		};
-		iterator begin() {
-			return iterator(start.begin(), start.end());
-		}
-		iterator end() {
-			return iterator(start.end(), start.end());
-		}
+		
 	};
 
 
