@@ -192,7 +192,7 @@ int main() {
 		ans = "";
 		s.str("");
 		for (auto subsrt : powerset(range(2, 5))) {
-			s << pair;
+			s << subsrt;
 		}
 		ans = s.str();
 		testcase.CHECK_OUTPUT(ans, "{}{2}{3}{2,3}{4}{2,4}{3,4}{2,3,4}");
@@ -200,7 +200,7 @@ int main() {
 		ans = "";
 		s.str("");
 		(auto subset : powerset(chain(range('a', 'c')), range('x', 'z')))) {
-			s << pair;
+			s << subsrt;
 		}
 		ans = s.str();
 		testcase.CHECK_OUTPUT(ans, "{}{a}{b}{a,b}{x}{a,x}{b,x}{a,b,x}{y}{a,y}{b,y}{a,b,y}{x,y}{a,x,y}{b,x,y}{a,b,x,y}");
@@ -208,7 +208,7 @@ int main() {
 		ans = "";
 		s.str("");
 		for (auto subsrt : powerset(chain(range(4,6), range(8,9)))) {
-			s << pair;
+			s << subsrt;
 		}
 		ans = s.str();
 		testcase.CHECK_OUTPUT(ans, "{}{4}{5}{4,5}{8}{4,8}{5,8}{4,5,8}");
@@ -216,7 +216,7 @@ int main() {
 		ans = "";
 		s.str("");
 		for (auto subsrt : powerset(chain(range(1.0, 2.0), range(3.0, 5.0)))) {
-			s << pair;
+			s << subsrt;
 		}
 		ans = s.str();
 		testcase.CHECK_OUTPUT(ans, "{}{1.0}{3.0}{1.0,3.0}{4.0}{1.0,4.0}{3.0,4.0}{1.0,3.0,4.0}");
