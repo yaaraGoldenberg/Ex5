@@ -9,13 +9,22 @@ namespace itertools {
 
 	public:
 		powerset(T s) : start(s){}
-		auto begin() {
+
+		/*auto begin() {
 			return iterator<decltype(start.begin())>(start.begin(), start.end());
 		}
 		auto end() {
 			return iterator<decltype(start.end())>(start.end(), start.end());
+		}*/
+		iterator begin()
+		{
+			return iterator(start.begin(), start.end());
 		}
-		
+
+		iterator end()
+		{
+			return iterator(start.begin(), start.end());
+		}
 		class iterator {
 		private:
 			typename T::iterator itr;
@@ -29,7 +38,7 @@ namespace itertools {
 				return s;
 			}
 
-			iterator& operator++() {
+			powerset::iterator& operator++() {
 				itr++;
 				return *this;
 			}
@@ -38,10 +47,10 @@ namespace itertools {
 				operator++();
 				return tempIt;*/
 			}
-			bool operator==(const iterator& it) const {
+			bool operator==( iterator& it)  {
 				return true;
 			}
-			bool operator!=(const iterator& it) const {
+			bool operator!=( iterator& it)  {
 				return true;
 			}
 		};

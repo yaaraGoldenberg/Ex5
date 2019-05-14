@@ -1,28 +1,28 @@
-﻿
-#include "iostream"
+﻿#include "iostream"
 namespace itertools {
-
-	template <typename T>
+	template<typename T>
 	class range {
-	public:
+	private:
 		T from;
 		T to;
+	public:
+		range(T start, T end) : from(start), to(end){}
 
-		range(T f, T t) : from(f), to(t) {}
-		range(range const &other) : from(other.from), to(other.to) {}
-		
 
-		class iterator {//http://www.cplusplus.com/reference/iterator/iterator/
-		private:
-			T *ptrIt;
+		class iterator {
+		//private:
+			
 
 		public:
+			T itr;
+			iterator(T it) : itr(it){}
 
-			iterator(T* itr) :ptrIt(itr) {}
-			//iterator(const iterator& itr) : ptrIt(itr.ptrIt) {}
+			T operator*() const {
+				return itr;
+			}
 
-			iterator& operator++() {
-				(*ptrIt)++;
+			iterator &operator++() {
+				itr++;
 				return *this;
 			}
 
@@ -32,26 +32,21 @@ namespace itertools {
 				return tempIt;
 			}
 
-			T& operator*() const{
-				return *ptrIt;
+			bool operator==(const iterator &it) const {
+				return itr == it.itr;
 			}
 
-			bool operator==(const iterator& itr) const {
-				return *ptrIt == *itr.ptrIt;
-			}
-
-			bool operator!=(const iterator& itr) const {
-				return *ptrIt != *itr.ptrIt;
+			bool operator!=(const iterator &it) const {
+				return itr != it.itr;
 			}
 		};
 
-		iterator begin() {
-			return iterator{ &from };
+		iterator begin() const {
+			return iterator(from);
 		}
 
-		iterator end() {
-			return iterator{ &to };
+		iterator end() const {
+			return iterator(to);
 		}
 	};
-
 }
