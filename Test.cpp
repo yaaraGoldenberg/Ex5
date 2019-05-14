@@ -6,7 +6,7 @@ using namespace std;
 #include "chain.hpp"
 #include "zip.hpp"
 #include "product.hpp"
-#include "powerset.hpp"
+//#include "powerset.hpp"
 
 #define COMMA ,
 
@@ -186,7 +186,7 @@ int main() {
 		}
 		ans = s.str();
 		testcase.CHECK_OUTPUT(ans, "2,6 2,7 3,6 3,7 4,6 4,7");
-
+		
 		////////powerset///////////
 		testcase.setname("powerset Test");
 		ans = "";
@@ -199,7 +199,7 @@ int main() {
 
 		ans = "";
 		s.str("");
-		(auto subset : powerset(chain(range('a', 'c'), range('x', 'z')))) {
+		(auto subset : powerset(chain(range('a', 'c')), range('x', 'z')))) {
 			s << pair;
 		}
 		ans = s.str();
@@ -220,7 +220,7 @@ int main() {
 		}
 		ans = s.str();
 		testcase.CHECK_OUTPUT(ans, "{}{1.0}{3.0}{1.0,3.0}{4.0}{1.0,4.0}{3.0,4.0}{1.0,3.0,4.0}");
-
+		
 	grade = testcase.grade();
 }
 	else {
