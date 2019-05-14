@@ -15,16 +15,17 @@ namespace itertools {
 		}
 		auto end() {
 			return iterator<decltype(start.end())>(start.end(), start.end());
-		}*/
-		iterator begin()
-		{
+		}
+		iterator begin() const {
 			return iterator(start.begin(), start.end());
 		}
 
-		iterator end()
-		{
+		iterator end() const {
 			return iterator(start.begin(), start.end());
-		}
+		}*/
+		int* begin() const { return nullptr; }
+		int* end() const { return nullptr; }
+
 		class iterator {
 		private:
 			typename T::iterator itr;
