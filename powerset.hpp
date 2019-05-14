@@ -9,11 +9,11 @@ namespace itertools {
 
 	public:
 		powerset(T s) : start(s){}
-		iterator begin() {
-			return iterator(start.begin(), start.end());
+		auto begin() {
+			return iterator<decltype(start.begin())>(start.begin(), start.end());
 		}
-		iterator end() {
-			return iterator(start.end(), start.end());
+		auto end() {
+			return iterator<decltype(start.end())>(start.end(), start.end());
 		}
 		
 		class iterator {
@@ -29,7 +29,7 @@ namespace itertools {
 				return s;
 			}
 
-			powerset::iterator& operator++() {
+			iterator& operator++() {
 				itr++;
 				return *this;
 			}
